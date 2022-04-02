@@ -32,46 +32,61 @@ class HomeScreenState extends State<HomepageScreen> {
                 ListView(children: [
                   searchBar(),
                   Container(margin: EdgeInsets.only(top: 40)),
-                  Text("home"),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+
 
 
                 ]))));
   }
 
-  Widget banners() {
-    List<Color> bannerColors = [
-      Colors.deepPurple,
-      Colors.red,
-      Colors.green,
-      Colors.yellow,
-      Colors.orange
-    ];
-
-    return CarouselSlider(
-      options: CarouselOptions(
-        height: 100.0,
-        enlargeCenterPage: true,
-        onPageChanged: (position, reason) {
-          print(reason);
-          print(CarouselPageChangedReason.controller);
-        },
-        enableInfiniteScroll: false,
+  Widget buildBackgruondCard(){
+    return Container(
+      width: double.infinity,
+      height: 200,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
+          fit: BoxFit.cover,
+        ),
       ),
-      items: bannerColors.map<Widget>((i) {
-        return Builder(
-          builder: (BuildContext context) {
-            return Container(
-              // height: 100.0,
-              decoration: BoxDecoration(
-                color: i,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            );
-          },
-        );
-      }).toList(),
+      child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("Name of product",
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        ),
+        const SizedBox(height: 8,),
+        Text('Price',
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),
+        ),
+      ],
+    ),
     );
   }
+
 
   Widget searchBar() {
     return Container(
