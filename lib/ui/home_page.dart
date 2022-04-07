@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'ui_components/app_bar.dart';
 import 'ui_components/search_bar.dart';
-
+import 'TabScreen.dart';
+import 'ui_components/product.dart';
 
 class HomepageScreen extends StatefulWidget {
   static const route= '/homepage';
@@ -18,6 +19,38 @@ class HomepageScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomepageScreen> {
   int _selectedIndex = 0;
+  int currentTabIndex =0;
+  List<Widget> tabs = [
+    Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
+        child:
+        ListView(children: [
+          SearchBar(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+          Container(margin: EdgeInsets.only(top: 40)),
+          Products(),
+
+        ])),
+    TabScreen(Colors.orange),
+    TabScreen(Colors.green)
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,34 +60,9 @@ class HomeScreenState extends State<HomepageScreen> {
             appBar: HomeAppBar(),
             backgroundColor: Colors.blue,
             bottomNavigationBar: bottomNavigationBar(),
-            body: Container(
-                margin: const EdgeInsets.all(5),
-                padding: const EdgeInsets.all(5),
-                child:
-                ListView(children: [
-                  SearchBar(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-
-
-
-                ]))));
+            body: tabs[currentTabIndex]
+        )
+    );
   }
 
   Widget buildBackgruondCard(){
@@ -109,7 +117,7 @@ class HomeScreenState extends State<HomepageScreen> {
           label: 'Cá nhân',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: currentTabIndex,
       selectedItemColor: Colors.blueAccent,
       onTap: _onItemTapped,
     );
@@ -117,7 +125,7 @@ class HomeScreenState extends State<HomepageScreen> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      currentTabIndex = index;
     });
   }
 
