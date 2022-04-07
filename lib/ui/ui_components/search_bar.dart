@@ -13,16 +13,14 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
-      child: SizedBox(
-        // margin: const EdgeInsets.all(5),
-        height: 50,
-        child: CupertinoSearchTextField(
-          backgroundColor: Colors.white,
-          padding: EdgeInsets.only(left: 10),
-          prefixIcon: Icon(Icons.search, size: 30),
-          placeholder: 'Bạn tìm gì hôm nay?',
-        ),
+    return Container(
+      // margin: const EdgeInsets.all(5),
+      height: 50,
+      child: const CupertinoSearchTextField(
+        backgroundColor: Colors.white,
+        padding: EdgeInsets.only(left: 10),
+        prefixIcon: Icon(Icons.search, size: 30),
+        placeholder: 'Bạn tìm gì hôm nay?',
       ),
     );
   }
