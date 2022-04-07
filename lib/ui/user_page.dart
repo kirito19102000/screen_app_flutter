@@ -3,20 +3,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'ui_components/app_bar.dart';
-import 'ui_components/search_bar.dart';
 
 
-class HomepageScreen extends StatefulWidget {
-  static const route= '/homepage';
+class UserpageScreen extends StatefulWidget {
+  static const route= '/userpage';
   @override
   State<StatefulWidget> createState() {
-    return HomeScreenState();
+    return UserScreenState();
   }
 
 }
 
-class HomeScreenState extends State<HomepageScreen> {
+class UserScreenState extends State<UserpageScreen> {
   int _selectedIndex = 0;
 
   @override
@@ -24,7 +22,7 @@ class HomeScreenState extends State<HomepageScreen> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            appBar: HomeAppBar(),
+            appBar: userAppBar(),
             backgroundColor: Colors.blue,
             bottomNavigationBar: bottomNavigationBar(),
             body: Container(
@@ -32,30 +30,32 @@ class HomeScreenState extends State<HomepageScreen> {
                 padding: const EdgeInsets.all(5),
                 child:
                 ListView(children: [
-                  SearchBar(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),Container(margin: EdgeInsets.only(top: 40)),
-                  buildBackgruondCard(),
 
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
+                  Container(margin: EdgeInsets.only(top: 40)),
+                  buildBackgruondCard(),
 
 
                 ]))));
   }
+
 
   Widget buildBackgruondCard(){
     return Container(
@@ -68,28 +68,56 @@ class HomeScreenState extends State<HomepageScreen> {
         ),
       ),
       child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Name of product",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-        ),
-        const SizedBox(height: 8,),
-        Text('Price',
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Name of product",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
-        ),
-      ],
-    ),
+          const SizedBox(height: 8,),
+          Text('Price',
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-
+  PreferredSizeWidget userAppBar() {
+    return AppBar(
+        title: Image.network(
+          'https://mentori.vn/upload/recruitment/uwc1625303270.png',
+          width: 400,
+          height: 70,
+        ),
+        leading: Center(
+          child: IconButton(
+            icon: const Icon(Icons.menu),
+            tooltip: 'Notifications',
+            onPressed: () {},
+          ),
+        ),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            tooltip: 'Notifications',
+            onPressed: () {},
+          ),
+          Container(width: 20),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            tooltip: 'Shopping Cart',
+            onPressed: () {},
+          ),
+        ]);
+  }
 
 
   BottomNavigationBar bottomNavigationBar() {
@@ -100,14 +128,17 @@ class HomeScreenState extends State<HomepageScreen> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Trang chủ',
+          backgroundColor: Colors.red,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.grid_view),
           label: 'Danh mục',
+          backgroundColor: Colors.blue,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
           label: 'Cá nhân',
+          backgroundColor: Colors.green,
         ),
       ],
       currentIndex: _selectedIndex,
@@ -121,6 +152,4 @@ class HomeScreenState extends State<HomepageScreen> {
       _selectedIndex = index;
     });
   }
-
-
 }
