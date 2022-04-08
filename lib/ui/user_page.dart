@@ -31,25 +31,15 @@ class UserScreenState extends State<UserpageScreen> {
                 child:
                 ListView(children: [
 
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
-                  Container(margin: EdgeInsets.only(top: 40)),
                   buildBackgruondCard(),
 
 

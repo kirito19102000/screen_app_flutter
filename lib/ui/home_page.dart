@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'ui_components/app_bar.dart';
 import 'ui_components/search_bar.dart';
-import 'TabScreen.dart';
+
 import 'ui_components/product.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -47,8 +47,8 @@ class HomeScreenState extends State<HomepageScreen> {
           Products(),
 
         ])),
-    TabScreen(Colors.orange),
-    TabScreen(Colors.green)
+    Text("Danh mục"),
+    Text("Cá nhân")
   ];
 
 
@@ -65,40 +65,6 @@ class HomeScreenState extends State<HomepageScreen> {
     );
   }
 
-  Widget buildBackgruondCard(){
-    return Container(
-      width: double.infinity,
-      height: 200,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Name of product",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-        ),
-        const SizedBox(height: 8,),
-        Text('Price',
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-          ),
-        ),
-      ],
-    ),
-    );
-  }
-
-
-
   BottomNavigationBar bottomNavigationBar() {
     return BottomNavigationBar(
       unselectedItemColor: Colors.grey,
@@ -107,18 +73,21 @@ class HomeScreenState extends State<HomepageScreen> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Trang chủ',
+          backgroundColor: Colors.red,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.grid_view),
           label: 'Danh mục',
+          backgroundColor: Colors.green,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
           label: 'Cá nhân',
+          backgroundColor: Colors.pink,
         ),
       ],
       currentIndex: currentTabIndex,
-      selectedItemColor: Colors.blueAccent,
+      selectedItemColor: Colors.amber[800],
       onTap: _onItemTapped,
     );
   }
